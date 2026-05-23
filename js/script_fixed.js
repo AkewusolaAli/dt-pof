@@ -190,3 +190,20 @@ if (contactForm) {
         }
     });
 }
+
+// ===== Project Description See More / See Less =====
+document.querySelectorAll('.project-description').forEach(desc => {
+    // Only add the button if the content is actually clamped
+    const btn = document.createElement('button');
+    btn.className = 'see-more-btn';
+    btn.textContent = 'See more...';
+
+    btn.addEventListener('click', function () {
+        const isExpanded = desc.classList.contains('expanded');
+        desc.classList.toggle('expanded');
+        btn.textContent = isExpanded ? 'See more...' : 'See less';
+    });
+
+    // Insert button right after the description
+    desc.insertAdjacentElement('afterend', btn);
+});
